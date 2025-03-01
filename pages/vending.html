@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음료 자판기</title>
+    <link rel="stylesheet" type="text/css" href="styles/vending.css">
+</head>
+<body>
+    <div class="vending-container">
+        <!-- 자판기 메인 프레임 -->
+        <div class="vending-machine">
+            <!-- 음료 선택 창 (스크롤 방식) -->
+            <div class="drink-selection">
+                <div class="drink-scroll">
+                    <div class="drink-item">
+                        <img src="assets/images/drink1.png" alt="음료1" class="drink-image">
+                        <div class="drink-divider"></div>
+                        <p class="drink-price">₩1,500</p>
+                        <button class="drink-button" data-price="1500" data-drink="drink1"></button>
+                    </div>
+                    <div class="drink-item">
+                        <img src="assets/images/drink2.png" alt="음료2" class="drink-image">
+                        <div class="drink-divider"></div>
+                        <p class="drink-price">₩1,800</p>
+                        <button class="drink-button" data-price="1800" data-drink="drink2"></button>
+                    </div>
+                    <div class="drink-item">
+                        <img src="assets/images/drink3.png" alt="음료3" class="drink-image">
+                        <div class="drink-divider"></div>
+                        <p class="drink-price">₩2,000</p>
+                        <button class="drink-button" data-price="2000" data-drink="drink3"></button>
+                    </div>
+                    <div class="drink-item">
+                        <img src="assets/images/drink4.png" alt="음료4" class="drink-image">
+                        <div class="drink-divider"></div>
+                        <p class="drink-price">₩2,500</p>
+                        <button class="drink-button" data-price="2500" data-drink="drink4"></button>
+                    </div>
+                    <div class="drink-item">
+                        <img src="assets/images/drink5.png" alt="음료5" class="drink-image">
+                        <div class="drink-divider"></div>
+                        <p class="drink-price">₩2,800</p>
+                        <button class="drink-button" data-price="2800" data-drink="drink5"></button>
+                    </div>
+                    <div class="drink-item">
+                        <img src="assets/images/drink6.png" alt="음료6" class="drink-image">
+                        <div class="drink-divider"></div>
+                        <p class="drink-price">₩3,000</p>
+                        <button class="drink-button" data-price="3000" data-drink="drink6"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 중간 컨트롤 영역 -->
+            <div class="control-area">
+                <!-- 텍스트 표시 영역 -->
+                <div class="display-window" id="display-window">
+                    <div id="display-message" class="message">돈을 넣으세요</div>
+                    <div id="wallet-selection" class="wallet-selection hidden">
+                        <button id="wallet1-btn" class="wallet-btn">▶ 조희연 지갑</button>
+                        <button id="wallet2-btn" class="wallet-btn">▶ 김희태 지갑</button>
+                    </div>
+                </div>
+
+                <!-- 지폐 투입구 영역 -->
+                <div class="money-controls">
+                    <!-- 잔액 표시 영역 -->
+                    <div class="money-display">₩<span id="money-amount">0</span></div>
+                    
+                    <!-- 반짝이는 지폐 투입구 -->
+                    <div class="bill-slot">
+                        <div class="slot-middle">- - - - - - -</div>
+                        <div class="slot-bottom"></div>
+                    </div>
+                </div>
+                
+                <!-- 동전 투입구 영역 -->
+                <div class="coin-area">
+                    <div class="coin-circle">
+                        <span>-</span>
+                    </div>
+                    <div class="coin-indicator"></div>
+                </div>
+            </div>
+
+            <!-- 음료 배출구 영역 -->
+            <div class="output-area">
+                <div class="output-slot">
+                    <div class="slot-line"></div>
+                    <div id="down-arrow" class="down-arrow">
+                        <div class="arrow-circle">
+                            <span class="arrow-symbol">↓</span>
+                        </div>
+                    </div>
+                    <div id="dispensed-drink" class="dispensed-drink"></div>
+                </div>
+                <button id="deposit-button" class="deposit-button"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 알림 모달 (필요시) -->
+    <div class="alert-modal" id="alert-modal">
+        <div class="alert-box">
+            <h3 id="alert-title">알림</h3>
+            <p id="alert-message"></p>
+            <button id="alert-confirm">확인</button>
+        </div>
+    </div>
+
+    <!-- AppStorage 모듈 -->
+    <script src="scripts/storage.js"></script>
+    <!-- 라우터 모듈 -->
+    <script src="scripts/router.js"></script>
+    <!-- 자판기 컨트롤러 -->
+    <script src="scripts/vending.js"></script>
+</body>
+</html>

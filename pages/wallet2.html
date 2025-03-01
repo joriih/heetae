@@ -1,0 +1,53 @@
+<div class="wallet2-container">
+    <div class="wallet-header">
+        <button class="back-button" id="back-button">&larr;</button>
+    </div>
+    
+    <div class="wallet-content">
+        <h3 style="text-align: center; margin-bottom: 30px; margin-top:10px;">김희태 지갑</h3>
+        <!-- 메인 카드 -->
+        <div class="wallet-card main-card">
+            <div class="card-top">
+                <p class="card-title">김희태의 통장 ★</p>
+                <p class="card-number">221015-95-0228</p>
+                <p class="card-balance"><span id="wallet-balance"></span>원</p>
+            </div>
+            <div class="card-buttons">
+                <button id="deposit-btn">입금</button>
+                <div class="card-divider"></div>
+                <button id="withdraw-btn">출금</button>
+            </div>
+        </div>
+        
+        <!-- 정기예금 카드 -->
+        <div class="wallet-card savings-card" id="deposit-info-card">
+            <div class="card-content">
+                <div class="card-details">
+                    <p class="card-title">정기예금</p>
+                    <p class="card-number">221015-96-1023</p>
+                </div>
+                <p class="card-amount">15,000,000원</p>
+            </div>
+        </div>
+        
+        <!-- 흑자전환예금 카드 -->
+        <div class="wallet-card savings-card" id="saving-info-card">
+            <div class="card-content">
+                <div class="card-details">
+                    <p class="card-title">흑자전환예금</p>
+                    <p class="card-number">8787-1313-8787</p>
+                </div>
+                <p class="card-amount">15,000,000원</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 알림 모달 -->
+    <div class="alert-modal" id="alert-modal">
+        <div class="alert-box">
+            <h3 id="alert-title"></h3>
+            <p id="alert-message"></p>
+            <button id="alert-confirm">확인</button>
+        </div>
+    </div>
+</div>

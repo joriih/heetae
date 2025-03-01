@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>출금</title>
+    <link rel="stylesheet" href="styles/withdrawal.css">
+</head>
+<body>
+    <div class="withdrawal-container">
+        <div class="withdrawal-header">
+            <button class="back-button" id="back-button">&larr;</button>
+            <h1>출금</h1>
+            <div class="spacer"></div>
+        </div>
+        
+        <div class="withdrawal-content">
+            <div class="balance-info">
+                <p class="account-label">내 계좌에서</p>
+                <h2 class="balance-amount">현재 잔액: <span id="current-balance">0</span>원</h2>
+            </div>
+            
+            <div class="amount-input-container">
+                <input type="text" id="withdrawal-amount" placeholder="꺼낼 금액을 입력하세요" readonly>
+            </div>
+            
+            <button class="complete-button" id="complete-button">완료</button>
+            
+            <div class="number-pad">
+                <div class="num-row">
+                    <button class="num-key" data-num="1">1</button>
+                    <button class="num-key" data-num="2">2</button>
+                    <button class="num-key" data-num="3">3</button>
+                </div>
+                <div class="num-row">
+                    <button class="num-key" data-num="4">4</button>
+                    <button class="num-key" data-num="5">5</button>
+                    <button class="num-key" data-num="6">6</button>
+                </div>
+                <div class="num-row">
+                    <button class="num-key" data-num="7">7</button>
+                    <button class="num-key" data-num="8">8</button>
+                    <button class="num-key" data-num="9">9</button>
+                </div>
+                <div class="num-row">
+                    <button class="num-key" data-num="00">00</button>
+                    <button class="num-key" data-num="0">0</button>
+                    <button class="num-key" data-num="del">⌫</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 알림 모달 -->
+        <div class="alert-modal" id="alert-modal">
+            <div class="alert-box">
+                <h3 id="alert-title">알림</h3>
+                <p id="alert-message"></p>
+                <button id="alert-confirm">확인</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

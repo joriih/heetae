@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클리커 게임</title>
+    <link rel="stylesheet" href="clicker.css">
+</head>
+<body>
+    <div class="clicker-container">
+        <div class="clicker-header">
+            <button class="back-button" id="back-button">&larr;</button>
+        </div>
+        
+        <div class="clicker-main">
+            <h3 style="text-align: center; margin-bottom: 30px; margin-top:30px;"> 돈을 벌어보자! </h3>
+            <div class="stats">
+                <p class="stat-item">💰 <span id="balance">0</span>원</p>
+                <p class="stat-item">💪 <span id="click-power">1</span></p>
+            </div>
+            <div class="character-area" id="character-area">
+                <!-- 기본 캐릭터 이미지 -->
+                <img src="assets/images/default.png" alt="캐릭터" id="default-character" class="character-image">
+                
+                <!-- 아이템 이미지들 (구매한 아이템들이 여기에 추가됨) -->
+                <div id="purchased-items"></div>
+                
+                <!-- 클릭 효과를 위한 요소 -->
+                <div id="floating-numbers"></div>
+            </div>
+        </div>
+        
+        <div class="clicker-footer">
+            <button class="shop-button" id="shop-button">
+                <span class="shop-icon">🛒</span>
+                <span>상점</span>
+            </button>
+            <!-- 상점 버튼 아래에 초기화 버튼 추가 -->
+            <button class="reset-button" id="reset-button">
+                <span class="reset-icon">🔄</span>
+                <span>초기화</span>
+            </button>
+        </div>
+        
+        <!-- 상점 모달 -->
+        <div class="shop-modal" id="shop-modal">
+            <div class="shop-content">
+                <div class="shop-header">
+                    <h2><span class="shop-icon">🛒</span>상점</h2>
+                    <button class="close-button" id="close-shop">&times;</button>
+                </div>
+                
+                <div class="shop-items" id="shop-items">
+                    <!-- 아이템 목록이 여기에 표시됩니다 -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- 알림 모달 -->
+        <div class="alert-modal" id="alert-modal">
+            <div class="alert-box">
+                <p id="alert-message"></p>
+                <button id="alert-confirm">확인</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="confirm-modal" id="confirm-modal">
+        <div class="confirm-box">
+            <h3>초기화 확인</h3>
+            <p>정말 게임을 초기화하시겠습니까?<br>모든 진행 상황이 삭제됩니다.</p>
+            <div class="confirm-buttons">
+                <button id="confirm-yes" class="confirm-yes">예</button>
+                <button id="confirm-no" class="confirm-no">아니오</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script src="clicker.js"></script>
+</body>
+</html>

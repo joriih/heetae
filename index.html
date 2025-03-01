@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>희태 앱</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/vending.css">
+    <script src="scripts/storage.js" defer></script>
+    <script src="scripts/router.js" defer></script>
+    <script src="scripts/vending.js" defer></script>
+    <style>
+        body {touch-action: manipulation;}
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- 페이지 콘텐츠가 여기에 로드됩니다 -->
+        <div id="page-container"></div>
+    </div>
+
+    <script>
+        // 앱 초기화
+        document.addEventListener('DOMContentLoaded', () => {
+            // 초기 경로를 스플래시 화면으로 설정
+            Router.navigate('login');
+        });
+    </script>
+</body>
+</html>

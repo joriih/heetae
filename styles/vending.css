@@ -1,0 +1,501 @@
+/* 전체 배경 및 컨테이너 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.vending-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* 자판기 프레임 */
+.vending-machine {
+    width: 350px;
+    height: 650px;
+    background-color: #e74c3c; /* 코카콜라 레드 */
+    border: 2px solid #000;
+    border-radius: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 파도 배경 효과 */
+.vending-machine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.3);
+    clip-path: path('M 0 0 Q 50 200, 100 650 L 0 650 Z');
+    z-index: 0;
+}
+.deposit-button{
+    height: 30px;
+    background-color: black;
+    border: 2px solid gray;
+    border-radius: 1px;
+}
+/* 음료 선택 창 - 터치 스크롤 추가 */
+.drink-selection {
+    width: 320px;
+    height: 220px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.drink-scroll {
+    display: flex;
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll; /* 수평 스크롤 */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+    scrollbar-width: none; /* Firefox 스크롤바 숨기기 */
+    -ms-overflow-style: none; /* IE/Edge 스크롤바 숨기기 */
+}
+
+/* 스크롤바 숨기기 */
+.drink-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.drink-item {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+    width: 110px;
+}
+
+.drink-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.drink-divider {
+    width: 100px;
+    height: 2px;
+    background-color: rgba(128, 128, 128, 0.6);
+    margin-bottom: 10px;
+}
+
+.drink-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin: 0 0 10px 0;
+}
+
+.drink-button {
+    width: 100px;
+    height: 25px;
+    background-color: #8a8a8a; /* 기본은 회색 (비활성화) */
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.drink-button.enabled {
+    background-color: #000000; /* 활성화 시 검정색 */
+}
+
+.drink-button:disabled {
+    cursor: not-allowed;
+}
+
+/* 중간 컨트롤 영역 - 레이아웃 개선 */
+.control-area {
+    display: flex;
+    width: 320px; /* 첫번째 구역과 동일한 너비 */
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    z-index: 1;
+    margin-top: -10px;
+    position: relative;
+}
+
+/* 텍스트 표시 영역 */
+.display-window {
+    width: 150px;
+    height: 90px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+}
+
+.message {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+}
+
+/* 지갑 선택 버튼 */
+.wallet-selection {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.wallet-btn {
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: monospace;
+    color: black;
+    text-align: left;
+    padding: 5px;
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 지폐 투입구 영역 */
+.money-controls {
+    display: flex;
+    flex-direction: column;
+    width: 70px; /* 고정 너비 */
+    margin-left: 20px;
+}
+
+/* 잔액 표시 영역 */
+.money-display {
+    width: 70px;
+    height: 20px;
+    background-color: black;
+    color: red;
+    font-size: 14px;
+    font-weight: light;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* 반짝이는 지폐 투입구 */
+.bill-slot {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.slot-top, .slot-bottom {
+    width: 70px;
+    height: 30px;
+    background-color: black;
+    margin-bottom: 10px;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+.slot-middle {
+    width: 70px;
+    height: 20px;
+    background-color: green;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: blink 0.8s infinite alternate;
+}
+
+@keyframes blink {
+    from { background-color: green; }
+    to { background-color: black; }
+}
+
+/* 동전 투입구 영역 */
+.coin-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70px; /* 고정 너비 */
+}
+
+.coin-circle {
+    width: 30px;
+    height: 30px;
+    background-color: gray;
+    border: 2px solid green;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+}
+
+.coin-indicator {
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    border-radius: 50%;
+    margin-left: 50px;
+}
+
+/* 음료 배출구 영역 */
+.output-area {
+    display: flex;
+    width: 320px;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    margin-top: 80px;
+    z-index: 1;
+    gap: 20px;
+}
+
+.output-slot {
+    width: 260px;
+    height: 100px;
+    background-color: black;
+    border-radius: 10px;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.slot-line {
+    width: 160px;
+    height: 5px;
+    background-color: rgba(128, 128, 128, 0.5);
+    margin-top: 10px;
+}
+
+.down-arrow {
+    margin-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+/* 기존 CSS 내용 그대로 유지하고 아래 애니메이션 추가 */
+
+/* 음료 드롭 애니메이션 */
+.dispensed-drink .dropping {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    animation: dropDrink 2s ease-in-out forwards;
+    transform: translateY(-100%);
+}
+
+@keyframes dropDrink {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(50%);
+        opacity: 0.9;
+    }
+    70% {
+        transform: translateY(70%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100%);
+        opacity: 1;
+    }
+}
+
+/* 다운 화살표 스타일 추가 */
+.down-arrow {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.arrow-circle {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:20px;
+}
+
+.arrow-symbol {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.dispensed-drink {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.dispensed-drink.active {
+    cursor: pointer;
+}
+
+.dispensed-drink-img {
+    max-width: 90px;
+    max-height: 80px;
+    transform: translateY(-80px) rotate(0deg);
+    transform-origin: center;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* 음료 버튼 활성화/비활성화 스타일 */
+.drink-button {
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.drink-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.drink-button.enabled::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+}
+
+.drink-button.enabled:hover::after {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+.dispensed-drink {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.dispensed-drink.active {
+    cursor: pointer;
+}
+
+
+
+
+/* 음료 상세 페이지 링크 스타일 */
+.drink-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* 음료 선택 영역 - 하얀색 배경 */
+.drink-selection {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+.drink-scroll {
+    display: flex;
+    gap: 20px;
+}
+
+.drink-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+}
+
+.drink-image {
+    width: 80px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.drink-divider {
+    width: 100px;
+    height: 2px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 5px 0;
+}
+
+.drink-price {
+    font-weight: bold;
+    margin: 5px 0;
+}
