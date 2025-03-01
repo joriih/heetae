@@ -86,7 +86,6 @@
 
 .wallet1-video-container {
     width: 100%;
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +99,7 @@
 
 .wallet1-message-box {
     position: relative;
-    margin: 0 auto 20px;
+    margin: 20px auto 20px;
     width: 300px;
     height: 80px;
     background-color: white;
