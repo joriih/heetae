@@ -106,7 +106,6 @@ body {
 
 /* 숫자 패드 */
 .number-pad {
-    margin-top: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
