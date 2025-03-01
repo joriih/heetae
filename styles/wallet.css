@@ -286,10 +286,6 @@
     cursor: pointer;
 }
 
-.number-pad {
-    margin-top: auto;
-    width: 100%;
-}
 
 .num-row {
     display: flex;
@@ -298,8 +294,6 @@
 }
 
 .num-key {
-    width: 110px;
-    height: 80px;
     border: none;
     background: none;
     font-size: 24px;

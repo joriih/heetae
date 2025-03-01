@@ -24,8 +24,6 @@ body {
 
 /* 자판기 프레임 */
 .vending-machine {
-    width: 350px;
-    height: 650px;
     background-color: #e74c3c; /* 코카콜라 레드 */
     border: 2px solid #000;
     border-radius: 1px;
